@@ -1,0 +1,19 @@
+Package: FireRuns
+Title: Calculate Fire Runs From an Isochrone Map
+Version: 0.0.0.9000
+Authors@R: person(given = "Andrea",
+           family = "Duane",
+           role = c("aut", "cre"),
+           email = "andreaduane@gmail.com",
+           comment = c(ORCID = "0000-0001-7687-4546"))
+Description: The package calculates and writes (shapefile type) two types of maximum spread runs according to an isochrone map and a wind direction table.
+License: GPL (>= 3) + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Depends:
+	terra,
+	reshape2
+
+
+
