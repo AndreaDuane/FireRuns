@@ -276,8 +276,9 @@ Runs <- function(AllPols, CRSproject=terra::crs(AllPols), nameID, nameFeho, Wind
             MeltedDist <- reshape2::melt(as.matrix(dist))
 
             # build DF with coordinates and calculate direction of the runs
-            distCoord <- merge(MeltedDist, terra::geom(p2)[, c(1, 3, 4)], by.x = "Var1", by.y = "geom")
-            distCoord <- merge(distCoord, terra::geom(CoveredLine)[, c(1, 3, 4)], by.x = "Var2", by.y = "geom")
+            distCoord <- merge(MeltedDist, geom(p2)[, c(1, 3, 4)], by.x = "Var1", by.y = "geom")
+            GeometriesCovered<-data.frame(rbind(geom(CoveredLine)[, c(1, 3, 4)])); GeometriesCovered$geom<-as.integer(GeometriesCovered$geom)
+            distCoord <- merge(distCoord, GeometriesCovered, by.x = "Var2", by.y = "geom")
             distCoord$Deg <- DegreesFireRun(distCoord$x.x, distCoord$x.y, distCoord$y.x, distCoord$y.y)
 
             if (flagRuns %in% c("both", "wind")) {
