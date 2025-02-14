@@ -177,6 +177,7 @@ Runs <- function(AllPols, CRSproject=terra::crs(AllPols), nameID, nameFeho, Wind
 
           # stick each run from the different polygons within an hour
           PerPoligonMaxims_wind <- rbind(PerPoligonMaxims_wind, MakeTable)
+          rm(MakeTable)
         } # end wind section
 
         if (flagRuns %in% c("both", "pols")) {
@@ -218,6 +219,7 @@ Runs <- function(AllPols, CRSproject=terra::crs(AllPols), nameID, nameFeho, Wind
           } # end while
 
           PerPoligonMaxims_pol <- rbind(PerPoligonMaxims_pol, MakeTable_pol)
+          rm(MakeTable_pol)
         } # end pol section
       } # end per polygon loop
     } # end isolated polygon
@@ -338,6 +340,7 @@ Runs <- function(AllPols, CRSproject=terra::crs(AllPols), nameID, nameFeho, Wind
               }
               # stick each run from the different polygons within an hour
               PerPoligonMaxims_wind <- rbind(PerPoligonMaxims_wind, MakeTable)
+              rm(MakeTable)
             } # end wind section
 
             if (flagRuns %in% c("both", "pols")) {
